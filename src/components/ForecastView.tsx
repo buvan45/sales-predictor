@@ -7,7 +7,13 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Download, TrendingUp, TrendingDown, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+import { containerVars, itemVars } from '@/lib/animations';
+
 const periods = [
+  { value: 'week' as const, label: 'Next Week' },
+  { value: 'month' as const, label: 'Next Month' },
+  { value: 'quarter' as const, label: 'Next Quarter' },
+];
   { value: 'week' as const, label: 'Next Week' },
   { value: 'month' as const, label: 'Next Month' },
   { value: 'quarter' as const, label: 'Next Quarter' },

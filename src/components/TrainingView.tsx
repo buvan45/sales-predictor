@@ -18,11 +18,7 @@ const modelIcons: Record<ModelType, React.ElementType> = {
   xgboost: Cpu,
 };
 
-const containerVars = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1], staggerChildren: 0.05 } },
-};
-const itemVars = { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 } };
+import { containerVars, itemVars } from '@/lib/animations';
 
 export default function TrainingView() {
   const { processedData, selectedModel, setSelectedModel, setTrainingResult, trainingResult, isTraining, setIsTraining, setCurrentView } = useAppState();

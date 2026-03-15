@@ -3,11 +3,7 @@ import { useAppState } from '@/context/AppContext';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
-const containerVars = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1], staggerChildren: 0.05 } },
-};
-const itemVars = { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 } };
+import { containerVars, itemVars } from '@/lib/animations';
 
 export default function DashboardView() {
   const { processedData, trainingResult } = useAppState();
