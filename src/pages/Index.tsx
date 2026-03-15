@@ -1,14 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { AppProvider, useAppState } from '@/context/AppContext';
+import Sidebar from '@/components/Sidebar';
+import UploadView from '@/components/UploadView';
+import TrainingView from '@/components/TrainingView';
+import DashboardView from '@/components/DashboardView';
+import ForecastView from '@/components/ForecastView';
 
-const Index = () => {
+function MainContent() {
+  const { currentView } = useAppState();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="ml-60 min-h-screen">
+      <div className="max-w-[1200px] mx-auto p-8">
+        {currentView === 'upload' && <UploadView />}
+        {currentView === 'training' && <TrainingView />}
+        {currentView === 'dashboard' && <DashboardView />}
+        {currentView === 'forecast' && <ForecastView />}
       </div>
     </div>
   );
-};
+}
 
-export default Index;
+export default function Index() {
+  return (
+    <AppProvider>
+      <Sidebar />
+      <MainContent />
+    </AppProvider>
+  );
+}
